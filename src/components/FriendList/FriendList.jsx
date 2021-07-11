@@ -1,14 +1,16 @@
+import React from 'react';
 import PropTypes from "prop-types";
 import defaultPhoto from '../dataFile/defaultPhoto.jpg';
+import style from './FriendList.module.css';
 
 const FriendsList = ({friends}) =>(
-    <ul className="friends-list" >
+    <ul className={style.friends} >
         {friends.map(e => {
             return (
-               <li className="item" key={e.id}>
-                    <span className="status">{ e.isOnline}</span>
-                <img className="avatar" src={e.avatar} alt={e.name} width="48" />
-                <p className="name">{e.name} </p>
+               <li className={style.item} key={e.id}>
+                    <span className={e.isOnline?style.onLine : style.ofLine}>{ e.isOnline}</span>
+                <img className={style.avatar} src={e.avatar} alt={e.name} width="48" />
+                <p className={style.name}>{e.name} </p>
                 </li>)}
         )}       
         </ul>);
